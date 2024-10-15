@@ -40,10 +40,7 @@ def init_tracker():
                             nms_max_overlap=cfg_deep.DEEPSORT.NMS_MAX_OVERLAP, max_iou_distance=cfg_deep.DEEPSORT.MAX_IOU_DISTANCE,
                             max_age=cfg_deep.DEEPSORT.MAX_AGE, n_init=cfg_deep.DEEPSORT.N_INIT, nn_budget=cfg_deep.DEEPSORT.NN_BUDGET,
                             use_cuda=True)
-    
-
 ##########################################################################################
-
 def xyxy_to_xywh(*xyxy):
     """" Calculates the relative bounding box from absolute pixel values. """
     bbox_left = min([xyxy[0].item(), xyxy[2].item()])
@@ -232,6 +229,7 @@ def draw_boxes(img, bbox, names, object_id, identities=None, offset=(0, 0)):
         cv2.putText(img, cnt_str1, (11, 75 + (idx * 40)), 0, 1, [225, 255, 255], thickness=2, lineType=cv2.LINE_AA)
 
     return img
+
 
 class DetectionPredictor(BasePredictor):
 
